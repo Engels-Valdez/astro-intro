@@ -1,0 +1,32 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Navbar from "../components/navbar.astro";
+
+
+// styles imports
+import '../styles/global.css';
+
+interface Props { // Astro le da el tipado a las pripiedades automaticamente
+  title: string;
+  isActive?: boolean;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <ClientRouter/>
+  </head>
+  <body>
+    <p>Menu</p>
+    <Navbar/>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
